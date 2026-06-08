@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SQ Ideas</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #F2EDE4;
+  --bg-card:  #EDE7DC;
+  --ink:      #1C1A17;
+  --ink-mid:  #4A463E;
+  --ink-faint:#8A857A;
+  --rule:     #D5CFC4;
+  --accent:   #C4501A;
+  --accent-2: #2B4A6F;
+  --white:    #FDFAF5;
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Serif Text', Georgia, serif;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+  padding: 0 clamp(1rem, 5vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.logo-sq {
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 1.55rem;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  position: relative;
+}
+
+.logo-sq .s { color: var(--accent); }
+.logo-sq .q { color: var(--accent-2); }
+
+.logo-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-bottom: 2px;
+  flex-shrink: 0;
+}
+
+.logo-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.header-right {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--ink-faint);
+  text-align: right;
+  line-height: 1.7;
+}
+
+/* ── HOME ── */
+#home-view {}
+
+.hero-band {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 4rem clamp(1rem, 5vw, 3rem) 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-band::before {
+  content: 'SQ';
+  position: absolute;
+  right: -0.05em;
+  top: -0.15em;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(12rem, 22vw, 22rem);
+  font-weight: 400;
+  color: rgba(255,255,255,0.035);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 400;
+  max-width: 680px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: rgba(255,255,255,0.55);
+}
+
+.hero-desc {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+  max-width: 520px;
+}
+
+.hero-authors {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.author-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.author-initial {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.ai-rq { background: var(--accent); color: white; }
+.ai-ls { background: var(--accent-2); color: white; }
+
+.author-name {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.3;
+}
+
+.author-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.06em;
+}
+
+.author-sep {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ── NOTES GRID ── */
+.notes-section {
+  padding: 3rem clamp(1rem, 5vw, 3rem);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.section-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5px;
+  background: var(--rule);
+  border: 1.5px solid var(--rule);
+}
+
+/* Featured: siempre full width */
+.note-card:first-child {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.note-card:first-child .card-body { padding: 2.5rem 2rem 2.5rem 2.5rem; }
+.note-card:first-child .card-number { font-size: 5rem; }
+.note-card:first-child .card-title { font-size: 1.9rem; }
+.note-card:first-child .card-deck { display: block; }
+
+.note-card {
+  background: var(--white);
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-card:hover { background: var(--bg-card); }
+
+.card-body {
+  padding: 1.75rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-number {
+  font-family: 'DM Mono', monospace;
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--rule);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 0.6rem;
+  font-weight: 400;
+}
+
+.note-card:hover .card-title { color: var(--accent); }
+
+.card-deck {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--ink-mid);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  display: none;
+}
+
+.card-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.card-authors {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.card-author-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--ink-faint);
+}
+
+.card-arrow {
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+  transition: transform 0.15s, color 0.15s;
+}
+
+.note-card:hover .card-arrow {
+  transform: translate(3px, -3px);
+  color: var(--accent);
+}
+
+/* ── ARTICLE VIEW ── */
+#article-view { display: none; }
+
+.article-header {
+  background: var(--ink);
+  color: var(--white);
+  padding: 3.5rem clamp(1rem, 5vw, 3rem) 3rem;
+}
+
+.art-back {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.15s;
+}
+
+.art-back:hover { color: var(--accent); }
+
+.art-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.art-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  line-height: 1.12;
+  max-width: 760px;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+.art-deck {
+  font-family: 'DM Serif Text', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.55);
+  max-width: 640px;
+  line-height: 1.55;
+  margin-bottom: 2rem;
+}
+
+.art-byline {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  flex-wrap: wrap;
+}
+
+.art-byline-author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.75);
+}
+
+.art-byline-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.06em;
+}
+
+.art-byline-read {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ── ARTICLE BODY ── */
+.article-body {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 3.5rem clamp(1rem, 5vw, 2rem) 5rem;
+}
+
+.article-body p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.article-body p:first-of-type::first-letter {
+  float: left;
+  font-family: 'DM Serif Display', serif;
+  font-size: 4.5rem;
+  line-height: 0.78;
+  margin: 0.05em 0.1em 0 0;
+  color: var(--accent);
+}
+
+.article-body h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.article-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding: 0.75rem 0 0.75rem 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--ink-mid);
+  line-height: 1.65;
+}
+
+.article-body .endmark {
+  display: block;
+  width: 32px;
+  height: 3px;
+  background: var(--accent);
+  margin: 3rem 0 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  padding: 2.5rem clamp(1rem, 5vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-logo {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: -0.03em;
+}
+
+.footer-logo .s { color: var(--accent); }
+.footer-logo .q { color: #6A9FD4; }
+
+.footer-text {
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.3);
+  text-align: right;
+  line-height: 1.8;
+}
+
+@media (max-width: 620px) {
+  .note-card:first-child { grid-template-columns: 1fr; }
+  .hero-authors { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .footer-text { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo" onclick="showHome()">
+    <span class="logo-sq"><span class="s">S</span><span class="q">Q</span></span>
+    <span class="logo-dot"></span>
+    <span class="logo-label">Ideas</span>
+  </div>
+  <div class="header-right" id="header-date"></div>
+</header>
+
+<!-- ══ HOME ══ -->
+<div id="home-view">
+
+  <div class="hero-band">
+    <div class="hero-kicker">Economía · Mercados · Ideas</div>
+    <h1 class="hero-title">Reflexiones que <em>no deberían</em><br>perderse</h1>
+    <p class="hero-desc">
+      Un repositorio de análisis, visiones y discusiones sobre economía argentina y global.
+      Texto que nació en conversaciones de dos economistas y terminó valiendo la pena escribir.
+    </p>
+    <div class="hero-authors">
+      <div class="author-chip">
+        <div class="author-initial ai-rq">RQ</div>
+        <div>
+          <div class="author-name">Ramiro Quinteros</div>
+          <div class="author-role">Economista</div>
+        </div>
+      </div>
+      <div class="author-sep">&amp;</div>
+      <div class="author-chip">
+        <div class="author-initial ai-ls">LS</div>
+        <div>
+          <div class="author-name">Leonel Salvo</div>
+          <div class="author-role">Economista</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notes-section">
+    <div class="section-header">
+      <span class="section-label">Todos los textos</span>
+      <div class="section-line"></div>
+      <span class="section-label" id="note-count"></span>
+    </div>
+    <div class="notes-grid" id="notes-grid"></div>
+  </div>
+
+</div>
+
+<!-- ══ ARTICLE ══ -->
+<div id="article-view">
+  <div class="article-header">
+    <button class="art-back" onclick="showHome()">← Volver</button>
+    <div class="art-num" id="art-num"></div>
+    <h1 class="art-title" id="art-title"></h1>
+    <p class="art-deck" id="art-deck"></p>
+    <div class="art-byline" id="art-byline"></div>
+  </div>
+  <div class="article-body" id="art-body"></div>
+</div>
+
+<footer>
+  <div class="footer-logo"><span class="s">S</span><span class="q">Q</span> Ideas</div>
+  <div class="footer-text">
+    Ramiro Quinteros &amp; Leonel Salvo<br>
+    El contenido es de carácter analítico y no constituye asesoramiento de inversión.
+  </div>
+</footer>
+
+<script src="notas.js"></script>
+<script>
+// Date en header
+const d = new Date();
+document.getElementById('header-date').innerHTML =
+  d.toLocaleDateString('es-AR', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+
+// Format date
+function fmtDate(s) {
+  return new Date(s + 'T12:00:00').toLocaleDateString('es-AR', { day:'numeric', month:'long', year:'numeric' });
+}
+
+// Author chips
+function authorChips(autores, dark) {
+  return autores.map(a => {
+    const initials = a.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+    const isRQ = initials === 'RQ';
+    const bg = isRQ ? '#C4501A' : '#2B4A6F';
+    return `<div class="card-author-dot" style="background:${bg};color:white;" title="${a}">${initials}</div>`;
+  }).join('');
+}
+
+// Render grid
+function renderHome() {
+  document.getElementById('note-count').textContent = NOTAS.length + ' texto' + (NOTAS.length !== 1 ? 's' : '');
+
+  const grid = document.getElementById('notes-grid');
+  grid.innerHTML = NOTAS.map((n, i) => {
+    const num = String(i + 1).padStart(2, '0');
+    const autores = Array.isArray(n.autores) ? n.autores : [n.autores];
+    return `
+    <div class="note-card" onclick="openArticle(${i})">
+      <div class="card-body">
+        <div class="card-number">${num}</div>
+        <div class="card-title">${n.titulo}</div>
+        <div class="card-deck">${n.bajada}</div>
+        <div class="card-footer">
+          <div class="card-authors">${authorChips(autores)}</div>
+          <div class="card-meta">${fmtDate(n.fecha)}</div>
+          <div class="card-arrow">↗</div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// Open article
+function openArticle(idx) {
+  const n = NOTAS[idx];
+  const autores = Array.isArray(n.autores) ? n.autores : [n.autores];
+  const num = String(idx + 1).padStart(2, '0');
+
+  document.getElementById('art-num').textContent = 'N.º ' + num;
+  document.getElementById('art-title').textContent = n.titulo;
+  document.getElementById('art-deck').textContent = n.bajada;
+
+  document.getElementById('art-byline').innerHTML = autores.map(a => {
+    const initials = a.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+    const bg = initials === 'RQ' ? '#C4501A' : '#2B4A6F';
+    return `<div class="art-byline-author">
+      <div class="author-initial" style="background:${bg};color:white;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:0.55rem;">${initials}</div>
+      ${a}
+    </div>`;
+  }).join('') +
+  `<div class="art-byline-date">${fmtDate(n.fecha)}</div>` +
+  (n.tiempo_lectura ? `<div class="art-byline-read">${n.tiempo_lectura} min</div>` : '');
+
+  // Body
+  const parrafos = n.cuerpo.split('\n\n').filter(p => p.trim());
+  let bodyHtml = '';
+  parrafos.forEach(p => {
+    if (p.startsWith('## ')) bodyHtml += `<h2>${p.slice(3)}</h2>`;
+    else if (p.startsWith('> ')) bodyHtml += `<blockquote>${p.replace(/^> /gm,'')}</blockquote>`;
+    else bodyHtml += `<p>${p.trim()}</p>`;
+  });
+  bodyHtml += '<span class="endmark"></span>';
+  document.getElementById('art-body').innerHTML = bodyHtml;
+
+  document.getElementById('home-view').style.display = 'none';
+  document.getElementById('article-view').style.display = 'block';
+  window.scrollTo(0, 0);
+}
+
+function showHome() {
+  document.getElementById('home-view').style.display = 'block';
+  document.getElementById('article-view').style.display = 'none';
+  window.scrollTo(0, 0);
+}
+
+renderHome();
+</script>
+</body>
+</html>
